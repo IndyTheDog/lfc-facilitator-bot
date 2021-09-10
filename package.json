@@ -1,0 +1,66 @@
+{
+  "name": "daily-bot",
+  "version": "1.0.0",
+  "description": "BOT to designate facilitator in daily Scrum meeting",
+  "main": "index.js",
+  "repository": "git@github.com:jscoobyced/daily-bot.git",
+  "author": "Cedric Rochefolle <19742131+jscoobyced@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@slack/web-api": "^6.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.9.0",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "babel-jest": "^27.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.1.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.4.0",
+    "supertest": "^6.1.6",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist",
+    "dev": "nodemon src/index.ts",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "test": "yarn lint && yarn jest",
+    "test:coverage": "yarn test --coverage"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {}
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.ts",
+      "<rootDir>/src/testUtil.ts/*"
+    ]
+  }
+}
