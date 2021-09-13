@@ -12,7 +12,7 @@ export const command: Handler = async (req, res) => {
     channel = req.body.channel_name;
   }
   if(channel === 'privategroup') {
-    channel = 'sea-tech-only';
+    channel = `${process.env.DEFAULT_GROUP}`;
   }
   let text = requestor;
   if (req.body && !!req.body.text) {
