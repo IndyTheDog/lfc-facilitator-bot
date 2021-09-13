@@ -11,6 +11,9 @@ export const command: Handler = async (req, res) => {
   if (req.body && !!req.body.channel_name) {
     channel = req.body.channel_name;
   }
+  if(channel === 'privategroup') {
+    channel = 'sea-tech-only';
+  }
   let text = requestor;
   if (req.body && !!req.body.text) {
     text = req.body.text;
