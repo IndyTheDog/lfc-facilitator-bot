@@ -18,7 +18,6 @@ export const choseFacilitator = async (requestor: string, facilitators: string[]
     }
 
     const allFacilitators = getFacilitators(facilitators);
-    console.log(allFacilitators);
     const facilitator = getFacilitator(allFacilitators);
     return postSlackMessage(
         channel,
