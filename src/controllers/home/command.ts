@@ -1,6 +1,5 @@
-import { randomInt } from 'crypto';
 import { Handler } from '../../models/route';
-import { postMessage } from '../../services/slack';
+import { choseFacilitator } from '../../services/facilitator';
 
 export const command: Handler = async (req, res) => {
   let requestor = 'Someone';
@@ -11,7 +10,7 @@ export const command: Handler = async (req, res) => {
   if (req.body && !!req.body.channel_name) {
     channel = req.body.channel_name;
   }
-  if(channel === 'privategroup') {
+  if (channel === 'privategroup') {
     channel = `${process.env.DEFAULT_GROUP}`;
   }
   let text = requestor;
@@ -19,11 +18,7 @@ export const command: Handler = async (req, res) => {
     text = req.body.text;
   }
   const facilitators = text.split(' ');
-  const facilitator = facilitators[randomInt(facilitators.length)];
-  return postMessage(
-    channel,
-    `:mega: ${requestor} requested a facilitator between [${text}].\n*${facilitator}* is the chosen one :tada:`,
-  ).then(() => {
-    res.status(200).send(`Facilitator sent to ${channel} channel.`);
+  return choseFacilitator(requestor, facilitators, channel).then((response) => {
+    res.status(200).send(response);
   });
 };

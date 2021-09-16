@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const postMessage = async (channel: string, message: string): Promise<ChatPostMessageResponse> => {
+export const postSlackMessage = async (channel: string, message: string): Promise<ChatPostMessageResponse> => {
   const web = new WebClient(process.env.SLACK_BOT_TOKEN);
 
   let response: ChatPostMessageResponse = {
