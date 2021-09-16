@@ -7,7 +7,7 @@ export const choseFacilitator = async (requestor: string, facilitators: string[]
         if (inputFacilitators
             && inputFacilitators[0] === 'team'
             && !!process.env.DEFAULT_TEAM) {
-            return process.env.DEFAULT_TEAM as unknown as string[];
+            return process.env.DEFAULT_TEAM.split(' ') as unknown as string[];
         }
 
         return inputFacilitators;
@@ -18,6 +18,7 @@ export const choseFacilitator = async (requestor: string, facilitators: string[]
     }
 
     const allFacilitators = getFacilitators(facilitators);
+    console.log(allFacilitators);
     const facilitator = getFacilitator(allFacilitators);
     return postSlackMessage(
         channel,
