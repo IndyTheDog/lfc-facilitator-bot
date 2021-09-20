@@ -1,5 +1,5 @@
 import { Handler } from '../../models/route';
-import { choseFacilitator } from '../../services/facilitator';
+import { chooseFacilitator } from '../../services/facilitator';
 
 export const command: Handler = async (req, res) => {
   let requestor = 'Someone';
@@ -18,7 +18,7 @@ export const command: Handler = async (req, res) => {
     text = req.body.text;
   }
   const facilitators = text.split(' ');
-  return choseFacilitator(requestor, facilitators, channel).then((response) => {
+  return chooseFacilitator(requestor, facilitators, channel).then((response) => {
     res.status(200).send(response);
   });
 };
