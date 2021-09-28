@@ -19,6 +19,6 @@ export const command: Handler = async (req, res) => {
   }
   const facilitators = text.split(' ');
   return chooseFacilitator(requestor, facilitators, channel).then((response) => {
-    res.status(200).send(response);
+    return res.status(200).send(response);
   });
 };
