@@ -47,7 +47,7 @@ export const chooseFacilitator = async (
         ',',
       )}].\n*${facilitator}* is the chosen one :tada:` +
         `\n*${backupFacilitator}* is the backup :star:` +
-        `\n*${firstSpeaker}* is the first to present :loudspeaker:`,
+        `\n*Listing Team* is the first to present :loudspeaker:`,
     )
     .then(() => {
       return `Facilitator sent to ${channel} channel.`;
